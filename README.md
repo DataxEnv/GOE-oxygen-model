@@ -16,8 +16,8 @@ The model tracks three interacting state variables:
 Processes included in the model:
 - Oxygen production via photosynthesis.
 - Oxidation reactions of reduced materials.
-Logistic growth of cyanobacteria.
-	•	Replenishment of the reduced reservoir via volcanic outgassing.
+- Logistic growth of cyanobacteria.
+- Replenishment of the reduced reservoir via volcanic outgassing.
 
 
 ## Model description 
