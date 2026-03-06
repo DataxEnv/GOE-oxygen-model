@@ -2,7 +2,7 @@
 
 The rise of atmospheric oxygen is a pivotal transition in Earth’s history. It is often associated with the Great Oxidation Event. Oxygen produced by early photosynthetic organisms was initially consumed by reduced geological materials and volcanic gases, preventing significant accumulation in the atmosphere.
 
- Using a coupled system of ODEs, this project models the interaction between Cyanobacterial oxygen production, geological oxygen sinks, and volcanic flux. The aim is to explore conditions under which oxygen can accumulate.
+Using a coupled system of ordinary differential equations (ODEs), this project models the interaction between cyanobacterial oxygen production, geological oxygen sinks, and volcanic flux. The aim is to explore conditions under which oxygen can accumulate.
 
 #### Research Question 
 How does the interaction between Cyanobacteria, reduced geological materials and Volcanic inputs control the accumulation of atmospheric oxygen levels on early Earth? 
