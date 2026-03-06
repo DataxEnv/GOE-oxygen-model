@@ -14,9 +14,9 @@ The model tracks three interacting state variables:
 	3.	Reduced geological reservoir (R) – available geochemical materials that consume oxygen.
 
 Processes included in the model:
-	•	Oxygen production via photosynthesis.
-	•	Oxidation reactions of reduced materials.
-	•	Logistic growth of cyanobacteria.
+- Oxygen production via photosynthesis.
+- Oxidation reactions of reduced materials.
+Logistic growth of cyanobacteria.
 	•	Replenishment of the reduced reservoir via volcanic outgassing.
 
 
