@@ -1,11 +1,64 @@
-# Modeling Atmospheric Oxygen Accumulation on Early Earth
+# GOE Model
+This project explores oxygen dynamics during the Great Oxidation Event (GOE) using a simplified dynamical model.
 
-The rise of atmospheric oxygen is a pivotal transition in Earth’s history. It is often associated with the Great Oxidation Event. Oxygen produced by early photosynthetic organisms was initially consumed by reduced geological materials and volcanic gases, preventing significant accumulation in the atmosphere.
 
-Using a coupled system of ordinary differential equations (ODEs), this project models the interaction between cyanobacterial oxygen production, geological oxygen sinks, and volcanic flux. The aim is to explore conditions under which oxygen can accumulate.
+---
 
-#### Research Question 
-How does the interaction between Cyanobacteria, reduced geological materials and Volcanic inputs control the accumulation of atmospheric oxygen levels on early Earth? 
+##  Model Update (v2 – Redox-Balanced Revision)
+This revision refines the original model (v1) by incorporating system-level redox accounting.
+
+
+ ### Initial Approach (v1)
+- Oxygenic photosynthesis treated as the net source of O₂  
+- Oxygen sinks represented by reduced gases and geological reservoirs  
+- Rate-based formulation (production vs consumption)
+
+
+### Limitation of v1
+- The model did not explicitly enforce **global redox balance**  
+- Oxygen accumulation was treated as a local balance problem rather than a *system-wide* redox process
+
+### Revised Understanding (v2)
+- Oxygen accumulation is not controlled by production alone  
+- Oxygenic photosynthesis produces both O₂ and reduced organic matter (CH₂O) as a coupled redox pair, so it does not change net atmospheric oxygen unless the reducing counterpart (CH₂O) is removed. 
+- Net O₂ accumulation requires removal of reducing power from the system via:
+  - Burial of organic carbon (CH₂O)  
+  - Escape of hydrogen (H₂) to space  
+
+> Therefore, oxygen accumulation depends on the **net removal of reducing power from the Earth system**, not biological production alone.
+
+### Model Update (v2)
+
+- Added organic carbon burial term  
+- Added hydrogen escape term  
+- Recast system as a redox-balanced evolution rather than a simple rate competition
+
+### Results (Summary)
+
+The updated model shows that oxygen accumulation only occurs when the system experiences a net loss of reducing power, rather than when oxygen production exceeds local sinks.
+
+Full equations, New assumptions, and simulation results are available in:
+`GOE_model_v2_redox.ipynb`
+
+---
+
+## Repository Structure
+
+- `GOE_model.ipynb` → Initial model (v1)  
+- `GOE_model_v2_redox.ipynb` → Updated model (v2)
+
+---
+
+
+
+
+
+## Appendix: Initial Model (v1)
+The initial model used a coupled system of ordinary differential equations (ODEs) to describe interactions between cyanobacterial biomass, atmospheric oxygen, and a reduced geological reservoir. The goal was to investigate whether biological oxygen production alone could explain the timing and structure of the Great Oxidation Event.
+
+### Research Question
+How does the interaction between cyanobacterial growth, reduced geological materials, and volcanic fluxes control the accumulation of atmospheric oxygen on early Earth?
+
 
 ## Conceptual Framework
 
@@ -23,6 +76,8 @@ Processes included in the model:
 - Oxidation reactions of reduced materials.
 - Logistic growth of cyanobacteria.
 - Replenishment of the reduced reservoir via volcanic outgassing.
+
+---
 
 
 ## Model description 
@@ -59,6 +114,9 @@ Where:
 - Volcanic input replenishes the reduced reservoir at a constant rate.
 - Other geological processes (sedimentation, tectonics) are not explicitly modeled.
 
+
+---
+
   
 ## Methodology
 The system of ordinary differential equations (ODEs) was solved numerically using Python's `scipy.integrate.solve_ivp`. 
@@ -70,35 +128,25 @@ The analysis consists of three components:
 
 All simulations are visualized using `matplotlib`. Parameter values and initial conditions are documented in the accompanying Jupyter Notebook for full reproducibility.
 
+---
 
-
-## Results
+## Results (v1 Summary)
 <img width="700" height="600" alt="image" src="https://github.com/user-attachments/assets/6f8ed650-614b-4e57-b2ab-30bdd33b9055" />
 
 Figure 2: Temporal dynamics of the Great Oxidation Event (GOE) model.
 
 
-The simulation shows a clear temporal sequence in the dynamics of biomass (B), atmospheric oxygen (O), and the reduced reservoir (R).
-
-Initially, cyanobacterial biomass *B* follows a characteristic sigmoidal (logistic) growth curve as it gradually approaches its carrying capacity *K* **(Phase I: Biomass Expansion)**. During this early phase, atmospheric oxygen *O* remains near zero because the oxygen produced is rapidly consumed by the reduced reservoir *R*, which buffers the system **(Phase II: Sink-Limited Oxygen)**.
-
-However, as biomass continues to increase, oxygen production eventually exceeds the reducing capacity of *R*. Once *B* crosses a critical threshold, the reduced reservoir becomes rapidly depleted and atmospheric oxygen rises nonlinearly **(Phase III: The Tipping Point)**. This rapid transition represents the simulated onset of the Great Oxidation Event, shifting the system from an anoxic to a more oxygenated state.
-
-## Discussion
-
-The model effectively captures the tipping-point behavior often associated with the Great Oxidation Event: oxygenation is a non-linear outcome of the balance between biological Oxygen production and geological reductant supply.
-
-The delay between the rise of Cyanobacterial biomass *(B)* and the increase in atmospheric oxygen *(O)* reflects the role of geological sinks in initially buffering the atmosphere against oxygen accumulation. During this phase, most of the oxygen produced by photosynthesis is consumed through oxidation reactions with reduced materials. This confirms that an active biological source alone is insufficient for persistent oxygenation when geological sinks are strong.
-
-Gradual depletion of *R* via the *γOR* oxidation reaction reduces the system’s ability to remove oxygen. Once oxygen production surpasses this sink capacity, atmospheric oxygen begins to rise rapidly. Sensitivity analysis indicates that volcanic flux *(V)* modulates the rate and timing of oxygen accumulation: elevated volcanic reducing fluxes strengthen the chemical sink and can delay Oxygenation even in the presence of mature biomass. This supports the hypothesis that the timing of the GOE may not have depended solely on the biological evolution of Cyanobacteria, but also on the long-term cooling of Earth's mantle and the subsequent decline of reducing volcanic gases (Holland, 2006; Lyons et al., 2014).
+The model produces a delayed oxygenation pattern driven by the gradual depletion of the reduced reservoir. Oxygen accumulation occurs once biological production exceeds the system’s capacity to buffer oxygen through geochemical sinks.
 
 
-## Conclusion
+### Conclusion (v1)
 
-Ultimately, the simulation demonstrates that the GOE can be interpreted as a one-way, non-linear transition driven by gradual biological growth coupled to finite geological sinks. Once the reduced reservoir is depleted, the system reaches a new, more oxidized equilibrium that enabled the emergence of aerobic ecosystems.
+Ultimately, The model suggests that the Great Oxidation Event can be interpreted as a non-linear transition driven by gradual biological growth coupled to finite geological sinks. Once the reduced reservoir is depleted, the system reaches a new, more oxidized equilibrium that enabled the emergence of aerobic ecosystems.
 
+---
 
 ## References
+Claire, M. W., Catling, D. C., & Zahnle, K. J. (2006). Biogeochemical modelling of the rise in atmospheric oxygen. *Geobiology*, 4(4), 239–269. https://faculty.washington.edu/dcatling/Claire2006-Geobiology.pdf
 
 Holland, H. D. (2006). *The oxygenation of the atmosphere and oceans. Philosophical Transactions of the Royal Society B: Biological Sciences*, 361(1470), 903–915. https://doi.org/10.1098/rstb.2006.1838
 
