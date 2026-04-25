@@ -33,11 +33,11 @@ This revision refines the original model (v1) by incorporating system-level redo
 - Added hydrogen escape term  
 - Recast system as a redox-balanced evolution rather than a simple rate competition
 
-### Results (Summary)
+### Result (Summary)
 
 The updated model shows that oxygen accumulation only occurs when the system experiences a net loss of reducing power, rather than when oxygen production exceeds local sinks.
 
-Full equations, New assumptions, and simulation results are available in:
+New equations, assumptions, and full simulation setups and results are available in:
 `GOE_model_v2_redox.ipynb`
 
 ---
