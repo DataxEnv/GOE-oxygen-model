@@ -62,7 +62,7 @@ How does the interaction between cyanobacterial growth, reduced geological mater
 
 ## Conceptual Framework
 
-<img width="700" height="600" alt="fig 1" src="https://github.com/user-attachments/assets/67127670-15d7-419c-9790-8eb6d8f92e73" />
+<img width="700" height="400" alt="fig 1" src="https://github.com/user-attachments/assets/67127670-15d7-419c-9790-8eb6d8f92e73" />
 
 Figure 1: Conceptual structure of the dynamical model. image by Author.
 
@@ -131,7 +131,7 @@ All simulations are visualized using `matplotlib`. Parameter values and initial 
 ---
 
 ## Results (v1 Summary)
-<img width="700" height="600" alt="image" src="https://github.com/user-attachments/assets/6f8ed650-614b-4e57-b2ab-30bdd33b9055" />
+<img width="800" height="400" alt="image" src="https://github.com/user-attachments/assets/6f8ed650-614b-4e57-b2ab-30bdd33b9055" />
 
 Figure 2: Temporal dynamics of the Great Oxidation Event (GOE) model.
 
