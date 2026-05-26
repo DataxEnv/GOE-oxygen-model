@@ -10,14 +10,14 @@ This project explores oxygen dynamics during the Great Oxidation Event (GOE) usi
 - `GOE_model_v3_redox.ipynb` → Fully redox-balanced model (v3, current)
 
 ---
-### Version 3 — Fully Redox-Balanced Model (Current)
+### Version 3: Fully Redox-Balanced Model (Current)
 
 #### Key Improvement
 Every process that adds oxidising power to the atmosphere now has an equal and opposite term removing reducing power from the geological reservoir:
 
-- **Organic carbon burial (β·α·B)** — source in dO/dt, equal sink in dR/dt
-- **H₂ escape (ε)** — appears symmetrically in both equations
-- **Geochemical oxidation (γOR)** — depletes both O and R simultaneously
+- **Organic carbon burial (β·α·B)**: Source in dO/dt, equal sink in dR/dt
+- **H₂ escape (ε)**: Appears symmetrically in both equations
+- **Geochemical oxidation (γOR)**: Depletes both O and R simultaneously
 
 This enforces Catling's central argument: *oxygen cannot accumulate unless the system experiences a net loss of reducing power through physical processes — burial and H₂ escape — not biological production alone.*
 
@@ -64,25 +64,27 @@ Note: γOR appears with the same sign in both equations, i.e., the oxidation rea
 #### Methodology
 The ODE system was solved numerically using Python's `scipy.integrate.solve_ivp`. Three analyses are presented:
 
-1. **Time evolution** — tracking B(t), O(t), and R(t) through three phases: anoxic buffering, GOE transition, and stable oxic state
-2. **Phase-space analysis** — visualising O versus R to identify the tipping point independent of time
-3. **H₂ escape sensitivity** — demonstrating that ε = 0 produces permanent anoxia regardless of burial, reproducing the key result of Claire et al. (2006) Fig. 8
+1. **Time evolution**: Tracks B(t), O(t), and R(t) through three phases: anoxic buffering, GOE transition, and stable oxic state
+2. **Phase-space analysis**: Visualises O versus R to identify the tipping point independent of time
+3. **H₂ escape sensitivity**: Demonstrates that ε = 0 produces permanent anoxia regardless of burial, reproducing the key result of Claire et al. (2006) Fig. 8
 
 #### Results
+<img width="900" height="400" alt="v3_dynamic_plot" src="https://github.com/user-attachments/assets/63c62672-859d-42c2-bfbb-20f5c7bce25f" />
 
-**Figure 1 — System dynamics (v3)**
-*(insert GOE_v3_fig1_dynamics.png)*
+**Figure 1: System dynamics (v3)**
+
 
 The simulation produces three distinct phases:
 
-**Phase I — Anoxic buffering:** Cyanobacteria grow logistically but oxygen remains suppressed. The geochemical sink (γOR) dominates because R is large and volcanic input (V) continuously replenishes it. Burial and H₂ escape are insufficient to overcome this sink because V exceeds burial alone.
+**Phase I - Anoxic buffering:** Cyanobacteria grow logistically but oxygen remains suppressed. The geochemical sink (γOR) dominates because R is large and volcanic input (V) continuously replenishes it. Burial and H₂ escape are insufficient to overcome this sink because V exceeds burial alone.
 
-**Phase II — GOE transition:** Cumulative H₂ escape slowly drains the reduced reservoir. As R falls, geochemical suppression weakens and O begins to rise non-linearly — the tipping point.
+**Phase II - GOE transition:** Cumulative H₂ escape slowly drains the reduced reservoir. As R falls, geochemical suppression weakens and O begins to rise non-linearly — the tipping point.
 
-**Phase III — Stable oxic state:** R is depleted. O stabilises at a new equilibrium where burial + H₂ escape is balanced by oxidative weathering (δO).
+**Phase III - Stable oxic state:** R is depleted. O stabilises at a new equilibrium where burial + H₂ escape is balanced by oxidative weathering (δO).
 
-**Figure 3 — H₂ escape sensitivity**
-*(insert GOE_v3_fig3_h2escape.png)*
+<img width="900" height="400" alt="GOE_v3_fig3_h2escape" src="https://github.com/user-attachments/assets/ac68c500-c37b-4697-9742-45bce848c463" />
+
+**Figure 3: H₂ escape sensitivity**
 
 When ε = 0, the system remains permanently anoxic regardless of cyanobacterial growth or burial — directly reproducing Claire et al. (2006) Fig. 8. H₂ escape is a necessary, not merely contributory, driver of the GOE.
 
@@ -90,9 +92,9 @@ When ε = 0, the system remains permanently anoxic regardless of cyanobacterial 
 The fully redox-balanced model confirms that the GOE cannot be explained by biological productivity alone. The transition to an oxic atmosphere requires a persistent net loss of reducing power from the Earth system, driven by organic carbon burial and, critically, the escape of hydrogen to space. Without H₂ escape, the model remains permanently anoxic, consistent with the theoretical framework of Catling (2014) and the biogeochemical modelling of Claire et al. (2006).
 
 ---
-## Appendix - Version History
+## Appendix - Model History
 
-### Version 1 — Rate-Based Model
+### Version 1: Rate-Based Model
 The initial model used a coupled system of ODEs to describe interactions between cyanobacterial biomass, atmospheric oxygen, and a reduced geological reservoir. The goal was to investigate whether biological oxygen production alone could explain the timing and structure of the GOE.
 
 #### Research Question
@@ -102,18 +104,12 @@ How does the interaction between cyanobacterial growth, reduced geological mater
 
 <img width="700" height="400" alt="fig 1" src="https://github.com/user-attachments/assets/67127670-15d7-419c-9790-8eb6d8f92e73" />
 
-<<<<<<< HEAD
-Figure 1: Conceptual structure of the v1 dynamical model. Image by Author.
-=======
-<img width="700" height="400" alt="fig 1" src="https://github.com/user-attachments/assets/67127670-15d7-419c-9790-8eb6d8f92e73" />
-
 Figure 1: Conceptual structure of the dynamical model. image by Author.
->>>>>>> 942ada3bfa27b55964ece13c93b655d6412d80ed
 
 The model tracks three interacting state variables:
-1. Cyanobacterial biomass (B) — the population of oxygen-producing organisms
-2. Atmospheric oxygen (O) — oxygen concentration in the atmosphere
-3. Reduced geological reservoir (R) — available geochemical materials that consume oxygen
+1. Cyanobacterial biomass (B): the population of oxygen-producing organisms
+2. Atmospheric oxygen (O): oxygen concentration in the atmosphere
+3. Reduced geological reservoir (R): available geochemical materials that consume oxygen
 
 Processes included:
 - Oxygen production via photosynthesis
@@ -167,16 +163,16 @@ The model suggests that the GOE can be interpreted as a non-linear transition dr
 #### Limitation of v1
 - The model did not explicitly enforce **global redox balance**
 - Oxygen accumulation was treated as a local balance problem rather than a system-wide redox process
-- Oxygenic photosynthesis was treated as a net O₂ source — which is incorrect on geological timescales, since CO₂ + H₂O ⇌ O₂ + CH₂O is reversible and redox-neutral
+- Oxygenic photosynthesis was treated as a net O₂ source, which is incorrect on geological timescales, since CO₂ + H₂O ⇌ O₂ + CH₂O is reversible and redox-neutral
 
 ---
 
-### Version 2 — Redox-Revised Model
+### Version 2: Redox-Revised Model
 
 #### Motivation
 Following expert review, v2 incorporates system-level redox accounting. The key insight, grounded in Catling (2014) and Claire et al. (2006), is:
 
-> Redox conservation is as inviolable as mass or energy conservation. Life on its own cannot change the net redox state of the surface of the Earth on a geological timescale. Every O₂ is balanced by organic matter (CH₂O). Net O₂ accumulation requires removal of reducing power from the system — either by burial of organic carbon or escape of hydrogen to space.
+> Redox conservation is as inviolable as mass or energy conservation. Life on its own cannot change the net redox state of the surface of the Earth on a geological timescale. Every O₂ is balanced by organic matter (CH₂O). Net O₂ accumulation requires removal of reducing power from the system, either by burial of organic carbon or escape of hydrogen to space.
 
 #### Revised Understanding
 - Oxygen accumulation is not controlled by production alone
@@ -185,12 +181,7 @@ Following expert review, v2 incorporates system-level redox accounting. The key 
   - Burial of organic carbon (CH₂O)
   - Escape of hydrogen (H₂) to space
 
-<<<<<<< HEAD
 > Therefore, oxygen accumulation depends on the **net removal of reducing power from the Earth system**, not biological production alone.
-=======
-## Results (v1 Summary)
-<img width="800" height="400" alt="image" src="https://github.com/user-attachments/assets/6f8ed650-614b-4e57-b2ab-30bdd33b9055" />
->>>>>>> 942ada3bfa27b55964ece13c93b655d6412d80ed
 
 #### Changes from v1
 - Added organic carbon burial term (β·α·B)
