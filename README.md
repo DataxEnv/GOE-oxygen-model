@@ -102,7 +102,13 @@ How does the interaction between cyanobacterial growth, reduced geological mater
 
 <img width="700" height="400" alt="fig 1" src="https://github.com/user-attachments/assets/67127670-15d7-419c-9790-8eb6d8f92e73" />
 
+<<<<<<< HEAD
 Figure 1: Conceptual structure of the v1 dynamical model. Image by Author.
+=======
+<img width="700" height="400" alt="fig 1" src="https://github.com/user-attachments/assets/67127670-15d7-419c-9790-8eb6d8f92e73" />
+
+Figure 1: Conceptual structure of the dynamical model. image by Author.
+>>>>>>> 942ada3bfa27b55964ece13c93b655d6412d80ed
 
 The model tracks three interacting state variables:
 1. Cyanobacterial biomass (B) — the population of oxygen-producing organisms
@@ -179,7 +185,12 @@ Following expert review, v2 incorporates system-level redox accounting. The key 
   - Burial of organic carbon (CH₂O)
   - Escape of hydrogen (H₂) to space
 
+<<<<<<< HEAD
 > Therefore, oxygen accumulation depends on the **net removal of reducing power from the Earth system**, not biological production alone.
+=======
+## Results (v1 Summary)
+<img width="800" height="400" alt="image" src="https://github.com/user-attachments/assets/6f8ed650-614b-4e57-b2ab-30bdd33b9055" />
+>>>>>>> 942ada3bfa27b55964ece13c93b655d6412d80ed
 
 #### Changes from v1
 - Added organic carbon burial term (β·α·B)
